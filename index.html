@@ -16,59 +16,32 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI"
   --border:rgba(0,0,0,0.11);--gray:#9a9a94;--surface:#e8e7e3;--white:#fff;
   --r:8px;--nav-h:52px;--bottom-h:60px;
 }
-.top-nav{
-  position:sticky;top:0;z-index:100;
-  display:flex;align-items:center;gap:4px;
-  padding:0 12px;height:var(--nav-h);
-  background:var(--white);border-bottom:0.5px solid var(--border);
-  overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;
-}
+.top-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:4px;padding:0 12px;height:var(--nav-h);background:var(--white);border-bottom:0.5px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
 .top-nav::-webkit-scrollbar{display:none}
 .logo{font-weight:700;font-size:15px;margin-right:8px;flex-shrink:0}
 .nav-btn{padding:6px 12px;border:none;border-radius:var(--r);cursor:pointer;font-size:13px;background:transparent;color:#5c5c57;flex-shrink:0;font-weight:500}
 .nav-btn.active{background:var(--blue-bg);color:var(--blue-text);font-weight:700}
-.bottom-nav{
-  display:none;
-  position:fixed;bottom:0;left:0;right:0;
-  height:var(--bottom-h);z-index:100;
-  background:var(--white);border-top:0.5px solid var(--border);
-  padding-bottom:env(safe-area-inset-bottom);
-}
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:var(--bottom-h);z-index:100;background:var(--white);border-top:0.5px solid var(--border);padding-bottom:env(safe-area-inset-bottom)}
 .bottom-nav-inner{display:flex;height:100%}
-.bnav-btn{
-  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  border:none;background:transparent;cursor:pointer;gap:2px;padding:6px 0;
-  color:var(--gray);font-size:10px;font-weight:500;
-}
+.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:none;background:transparent;cursor:pointer;gap:2px;padding:6px 0;color:var(--gray);font-size:10px;font-weight:500}
 .bnav-btn.active{color:var(--blue-text)}
 .bnav-icon{font-size:20px;line-height:1}
 #app{padding:12px;padding-bottom:calc(var(--bottom-h) + 12px)}
 .card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:2px 7px;border-radius:99px;margin-left:4px;white-space:nowrap}
-.b-blue{background:var(--blue-bg);color:var(--blue-text)}
-.b-purple{background:var(--purple-bg);color:var(--purple-text)}
-.b-green{background:var(--green-bg);color:var(--green)}
-.b-red{background:var(--red-bg);color:var(--red)}
-.b-orange{background:var(--orange-bg);color:var(--orange)}
-.b-gray{background:var(--surface);color:var(--gray)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;
-  padding:8px 16px;border-radius:var(--r);cursor:pointer;font-size:14px;font-weight:600;border:none;white-space:nowrap;line-height:1.2}
-.btn-p{background:var(--blue);color:#fff}
-.btn-s{background:var(--surface);color:#5c5c57;border:0.5px solid var(--border)}
-.btn-d{background:var(--red-bg);color:var(--red);border:0.5px solid #F09595}
-.btn-w{background:var(--orange-bg);color:var(--orange);border:0.5px solid #EF9F27}
+.b-blue{background:var(--blue-bg);color:var(--blue-text)}.b-purple{background:var(--purple-bg);color:var(--purple-text)}
+.b-green{background:var(--green-bg);color:var(--green)}.b-red{background:var(--red-bg);color:var(--red)}
+.b-orange{background:var(--orange-bg);color:var(--orange)}.b-gray{background:var(--surface);color:var(--gray)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:8px 16px;border-radius:var(--r);cursor:pointer;font-size:14px;font-weight:600;border:none;white-space:nowrap;line-height:1.2}
+.btn-p{background:var(--blue);color:#fff}.btn-s{background:var(--surface);color:#5c5c57;border:0.5px solid var(--border)}
+.btn-d{background:var(--red-bg);color:var(--red);border:0.5px solid #F09595}.btn-w{background:var(--orange-bg);color:var(--orange);border:0.5px solid #EF9F27}
 .btn-sm{padding:5px 10px;font-size:12px;font-weight:500}
 .btn:disabled{background:var(--surface);color:var(--gray);cursor:not-allowed;border:none}
 .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
 .stat{background:var(--white);border-radius:12px;padding:12px}
-.stat-label{font-size:11px;color:var(--gray);margin-bottom:3px}
-.stat-value{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat-label{font-size:11px;color:var(--gray);margin-bottom:3px}.stat-value{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
 label{display:block;font-size:11px;color:var(--gray);margin-bottom:3px;font-weight:500}
-input,select{
-  width:100%;padding:10px;border:0.5px solid var(--border);border-radius:var(--r);
-  font-size:16px;background:var(--white);color:#1a1a18;outline:none;
-  -webkit-appearance:none;appearance:none;
-}
+input,select{width:100%;padding:10px;border:0.5px solid var(--border);border-radius:var(--r);font-size:16px;background:var(--white);color:#1a1a18;outline:none;-webkit-appearance:none;appearance:none}
 input:focus,select:focus{border-color:var(--blue)}
 input[type=time],input[type=date],input[type=month],input[type=number]{font-size:14px}
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -84,35 +57,32 @@ tr:last-child td{border-bottom:none}
 .punch-btn{padding:16px;font-size:16px;font-weight:700;border:none;border-radius:var(--r);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 .edit-inline{background:var(--blue-bg);border-top:0.5px solid var(--border);padding:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
 .save-pill{display:none;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px}
-.pill-ok{background:var(--green-bg);color:var(--green)}
-.pill-ng{background:var(--red-bg);color:var(--red)}
+.pill-ok{background:var(--green-bg);color:var(--green)}.pill-ng{background:var(--red-bg);color:var(--red)}
 .corr-panel{background:var(--white);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px}
 .corr-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface);border-bottom:0.5px solid var(--border);flex-wrap:wrap;gap:6px}
-.diff-b{color:var(--red);text-decoration:line-through;margin-right:3px}
-.diff-a{color:var(--green)}
+.diff-b{color:var(--red);text-decoration:line-through;margin-right:3px}.diff-a{color:var(--green)}
 .empty{padding:2rem;text-align:center;color:var(--gray);font-size:13px}
 .avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
-
+/* 給与履歴タイムライン */
+.salary-timeline{padding:12px 14px}
+.salary-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--border)}
+.salary-item:last-child{border-bottom:none}
+.salary-dot{width:10px;height:10px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.salary-dot.past{background:var(--gray)}
+.salary-meta{flex:1;min-width:0}
+.salary-amount{font-weight:600;font-size:14px}
+.salary-from{font-size:11px;color:var(--gray);margin-top:1px}
 @media(max-width:600px){
-  .top-nav .nav-btn{display:none}
-  .bottom-nav{display:block}
+  .top-nav .nav-btn{display:none}.bottom-nav{display:block}
   #app{padding:10px;padding-bottom:calc(var(--bottom-h) + env(safe-area-inset-bottom) + 10px)}
-  .stat-grid{grid-template-columns:1fr 1fr}
-  .sidebar{display:none}
-  .emp-picker{display:block}
-  .layout-main{padding:0!important}
-  .punch-btn{padding:18px;font-size:17px}
-  table{min-width:340px}
-  th,td{padding:8px 8px;font-size:12px}
+  .stat-grid{grid-template-columns:1fr 1fr}.sidebar{display:none}.emp-picker{display:block}
+  .layout-main{padding:0!important}.punch-btn{padding:18px;font-size:17px}
+  table{min-width:340px}th,td{padding:8px 8px;font-size:12px}
 }
-@media(min-width:601px){
-  .top-nav .nav-btn{display:inline-flex}
-  .logo{display:block}
-}
+@media(min-width:601px){.top-nav .nav-btn{display:inline-flex}.logo{display:block}}
 </style>
 </head>
 <body>
-
 <nav class="top-nav">
   <span class="logo">⏱ 勤怠管理</span>
   <button class="nav-btn" id="nav-clock"   onclick="go('clock')">打刻</button>
@@ -120,7 +90,6 @@ tr:last-child td{border-bottom:none}
   <button class="nav-btn" id="nav-payroll" onclick="go('payroll')">給与計算</button>
   <button class="nav-btn" id="nav-admin"   onclick="go('admin')">従業員管理</button>
 </nav>
-
 <div class="bottom-nav">
   <div class="bottom-nav-inner">
     <button class="bnav-btn" id="bn-clock"   onclick="go('clock')"><span class="bnav-icon">⏰</span>打刻</button>
@@ -129,31 +98,41 @@ tr:last-child td{border-bottom:none}
     <button class="bnav-btn" id="bn-admin"   onclick="go('admin')"><span class="bnav-icon">👥</span>従業員</button>
   </div>
 </div>
-
 <div id="app"></div>
-
 <script>
-// ── ストレージ（localStorage） ───────────────────────────
 const STORE_KEY = "kintai_v1";
-function loadData() {
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch(_) {}
-  return null;
+function loadData(){try{const r=localStorage.getItem(STORE_KEY);if(r)return JSON.parse(r);}catch(_){}return null;}
+function saveData(d){try{localStorage.setItem(STORE_KEY,JSON.stringify(d));return true;}catch(_){return false;}}
+
+// ── 給与履歴ヘルパー ────────────────────────────────────
+// 指定月に適用される給与エントリを返す
+function getSalaryEntry(emp, month){
+  const hist = emp.salaryHistory||[];
+  if(!hist.length) return {salary:emp.salary||0, stdH:emp.stdH||160};
+  const applicable = hist.filter(h=>h.from<=month).sort((a,b)=>b.from.localeCompare(a.from));
+  return applicable[0] || hist.sort((a,b)=>a.from.localeCompare(b.from))[0];
 }
-function saveData(data) {
-  try {
-    localStorage.setItem(STORE_KEY, JSON.stringify(data));
-    return true;
-  } catch(_) { return false; }
+// 現在の給与（最新エントリ）
+function getCurrentSalary(emp){
+  const hist = emp.salaryHistory||[];
+  if(!hist.length) return {salary:emp.salary||0, stdH:emp.stdH||160};
+  return hist.sort((a,b)=>b.from.localeCompare(a.from))[0];
+}
+// 旧データをsalaryHistoryへ移行
+function migrateSalary(emp){
+  if(!emp.salaryHistory){
+    emp.salaryHistory = emp.salary
+      ? [{from:"2020-01", salary:emp.salary, stdH:emp.stdH||160}]
+      : [];
+  }
+  return emp;
 }
 
-// ── 初期データ ───────────────────────────────────────────
+// ── 初期データ ────────────────────────────────────────
 let employees = [
-  {id:"e1",name:"田中 太郎",dept:"営業部",type:"正社員",salary:280000,stdH:160},
-  {id:"e2",name:"佐藤 花子",dept:"経理部",type:"正社員",salary:260000,stdH:160},
-  {id:"e3",name:"鈴木 一郎",dept:"営業部",type:"パート",salary:1200,stdH:160},
+  {id:"e1",name:"田中 太郎",dept:"営業部",type:"正社員",stdH:160,salaryHistory:[{from:"2026-01",salary:280000,stdH:160}]},
+  {id:"e2",name:"佐藤 花子",dept:"経理部",type:"正社員",stdH:160,salaryHistory:[{from:"2026-01",salary:260000,stdH:160}]},
+  {id:"e3",name:"鈴木 一郎",dept:"営業部",type:"パート",stdH:160,salaryHistory:[{from:"2026-01",salary:1200,stdH:160}]},
 ];
 const MK=(id,date,ci,co)=>({id:`r${id}${date}`,eid:id,date,ci,co});
 let records=[
@@ -180,114 +159,109 @@ let records=[
   MK("e3","2026-06-25","10:00","15:00"),MK("e3","2026-06-26","10:00","15:30"),MK("e3","2026-06-30","10:00","15:00"),
   MK("e3","2026-07-01","10:00","15:00"),MK("e3","2026-07-02","10:00","16:00"),
 ];
-let corrections = [];
+let corrections=[];
 
-// 既存データがあれば上書き
-const saved = loadData();
-if (saved) {
-  if (saved.employees?.length) employees = saved.employees;
-  if (saved.records?.length)   records   = saved.records;
-  if (saved.corrections?.length) corrections = saved.corrections;
+const saved=loadData();
+if(saved){
+  if(saved.employees?.length) employees=saved.employees.map(migrateSalary);
+  if(saved.records?.length)   records=saved.records;
+  if(saved.corrections?.length) corrections=saved.corrections;
 }
 
-let view="report", selId=employees[0]?.id, editId=null;
-let reportMonth="2026-06", ieId=null, showCorr=false, corrFilter="all";
+let view="report",selId=employees[0]?.id,editId=null,reportMonth="2026-06";
+let ieId=null,showCorr=false,corrFilter="all";
+// 給与変更フォームの表示状態
+let salaryFormId=null;
 
-// ── ユーティリティ ───────────────────────────────────────
-const today  = () => new Date().toISOString().split("T")[0];
-const nowHM  = () => { const d=new Date(); return `${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`; };
-const calcH  = (a,b) => { if(!a||!b)return 0; const[ah,am]=a.split(":").map(Number),[bh,bm]=b.split(":").map(Number); return Math.max(0,(bh*60+bm-ah*60-am)/60); };
-const yen    = n => n.toLocaleString("ja-JP",{style:"currency",currency:"JPY",maximumFractionDigits:0});
-const abg    = t => t==="正社員"?"#E6F1FB":"#EEEDFE";
-const acl    = t => t==="正社員"?"#185FA5":"#534AB7";
-const tb     = t => t==="正社員"?`<span class="badge b-blue">正社員</span>`:`<span class="badge b-purple">パート</span>`;
-const fdt    = ts => { const d=new Date(ts); return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`; };
+// ── ユーティリティ ─────────────────────────────────────
+const today=()=>new Date().toISOString().split("T")[0];
+const nowHM=()=>{const d=new Date();return`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;};
+const calcH=(a,b)=>{if(!a||!b)return 0;const[ah,am]=a.split(":").map(Number),[bh,bm]=b.split(":").map(Number);return Math.max(0,(bh*60+bm-ah*60-am)/60);};
+const yen=n=>n.toLocaleString("ja-JP",{style:"currency",currency:"JPY",maximumFractionDigits:0});
+const abg=t=>t==="正社員"?"#E6F1FB":"#EEEDFE";
+const acl=t=>t==="正社員"?"#185FA5":"#534AB7";
+const tb=t=>t==="正社員"?`<span class="badge b-blue">正社員</span>`:`<span class="badge b-purple">パート</span>`;
+const fdt=ts=>{const d=new Date(ts);return`${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;};
 
-function calcPay(emp, th, ot) {
-  if (!emp.salary || emp.salary <= 0) return null;
-  if (emp.type === "正社員") {
-    const hr = emp.salary / (emp.stdH || 160), op = Math.round(hr * 1.25 * ot);
-    return { base: emp.salary, op, total: emp.salary + op, hr: Math.round(hr) };
+function calcPay(emp,th,ot,month){
+  const entry=getSalaryEntry(emp,month);
+  if(!entry||!entry.salary||entry.salary<=0)return null;
+  const stdH=entry.stdH||160,salary=entry.salary;
+  if(emp.type==="正社員"){
+    const hr=salary/stdH,op=Math.round(hr*1.25*ot);
+    return{base:salary,op,total:salary+op,hr:Math.round(hr),salary,stdH};
   }
-  const reg = Math.max(0, th - ot), base = Math.round(emp.salary * reg), op = Math.round(emp.salary * 1.25 * ot);
-  return { base, op, total: base + op, hr: emp.salary };
+  const reg=Math.max(0,th-ot),base=Math.round(salary*reg),op=Math.round(salary*1.25*ot);
+  return{base,op,total:base+op,hr:salary,salary,stdH};
 }
 
-function persist() {
-  const ok = saveData({ employees, records, corrections });
-  pill(ok ? "ok" : "ng");
-}
-
-function pill(s) {
-  document.querySelectorAll(".save-pill").forEach(el => {
-    el.textContent = s === "ok" ? "✓ 保存しました" : "⚠ 保存に失敗";
-    el.className = "save-pill " + (s === "ok" ? "pill-ok" : "pill-ng");
-    el.style.display = "inline-flex";
-    setTimeout(() => el.style.display = "none", 2500);
+function persist(){const ok=saveData({employees,records,corrections});pill(ok?"ok":"ng");}
+function pill(s){
+  document.querySelectorAll(".save-pill").forEach(el=>{
+    el.textContent=s==="ok"?"✓ 保存しました":"⚠ 保存に失敗";
+    el.className="save-pill "+(s==="ok"?"pill-ok":"pill-ng");
+    el.style.display="inline-flex";
+    setTimeout(()=>el.style.display="none",2500);
   });
 }
-
-function logC(type, eid, date, before, after, note="") {
-  const emp = employees.find(e => e.id === eid);
-  corrections.unshift({ id:"c"+Date.now(), ts:Date.now(), type, eid, name:emp?.name||"", date, before, after, note });
+function logC(type,eid,date,before,after,note=""){
+  const emp=employees.find(e=>e.id===eid);
+  corrections.unshift({id:"c"+Date.now(),ts:Date.now(),type,eid,name:emp?.name||"",date,before,after,note});
 }
 
-// ── ナビ ────────────────────────────────────────────────
-function go(v) {
-  view = v; ieId = null;
-  document.querySelectorAll(".nav-btn,.bnav-btn").forEach(b => b.classList.remove("active"));
-  document.querySelectorAll(`#nav-${v},#bn-${v}`).forEach(b => b.classList.add("active"));
+function go(v){
+  view=v;ieId=null;salaryFormId=null;
+  document.querySelectorAll(".nav-btn,.bnav-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(`#nav-${v},#bn-${v}`).forEach(b=>b.classList.add("active"));
   render();
 }
-
-function render() {
-  const app = document.getElementById("app"); if (!app) return;
-  if (view === "clock")   app.innerHTML = rClock();
-  if (view === "report")  app.innerHTML = rReport();
-  if (view === "payroll") app.innerHTML = rPayroll();
-  if (view === "admin")   app.innerHTML = rAdmin();
+function render(){
+  const app=document.getElementById("app");if(!app)return;
+  if(view==="clock")  app.innerHTML=rClock();
+  if(view==="report") app.innerHTML=rReport();
+  if(view==="payroll")app.innerHTML=rPayroll();
+  if(view==="admin")  app.innerHTML=rAdmin();
 }
 
-// ── 共通パーツ ───────────────────────────────────────────
-function empPicker(label="") {
-  return `<div class="emp-picker">
-    ${label ? `<div style="font-size:13px;font-weight:600;margin-bottom:6px">${label}</div>` : ""}
+function empPicker(label=""){
+  return`<div class="emp-picker">
+    ${label?`<div style="font-size:13px;font-weight:600;margin-bottom:6px">${label}</div>`:""}
     <select onchange="selId=this.value;ieId=null;render()" style="font-size:15px">
-      ${employees.map(e => `<option value="${e.id}" ${e.id===selId?"selected":""}>${e.name}（${e.type}）</option>`).join("")}
+      ${employees.map(e=>`<option value="${e.id}" ${e.id===selId?"selected":""}>${e.name}（${e.type}）</option>`).join("")}
     </select>
   </div>`;
 }
-
-function sidebar() {
-  return `<div class="sidebar">
+function sidebar(){
+  return`<div class="sidebar">
     <div class="sidebar-label">従業員</div>
-    ${employees.map(e => `
+    ${employees.map(e=>`
       <button class="sidebar-btn" onclick="selId='${e.id}';ieId=null;render()"
         style="border-left:${e.id===selId?"2px solid var(--blue)":"2px solid transparent"};background:${e.id===selId?"var(--surface)":"transparent"};font-weight:${e.id===selId?700:400}">
         <div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.name}</div>
-        ${e.dept ? `<div style="font-size:11px;color:var(--gray)">${e.dept}</div>` : ""}
+        ${e.dept?`<div style="font-size:11px;color:var(--gray)">${e.dept}</div>`:""}
       </button>`).join("")}
   </div>`;
 }
 
-// ── 打刻 ────────────────────────────────────────────────
-function rClock() {
-  const t = today(), rec = records.find(r => r.eid===selId && r.date===t);
-  const h = calcH(rec?.ci, rec?.co), emp = employees.find(e => e.id===selId);
-  const now = new Date();
-  const ts = `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}:${String(now.getSeconds()).padStart(2,"0")}`;
-  const ds = now.toLocaleDateString("ja-JP",{year:"numeric",month:"long",day:"numeric",weekday:"short"});
-  const isWork = rec?.ci && !rec?.co, isDone = rec?.ci && rec?.co;
-  const status = isWork ? `<span class="badge b-green">● 勤務中</span>` : isDone ? `<span class="badge b-blue">✓ 退勤済み</span>` : `<span class="badge b-gray">未出勤</span>`;
-  const canIn = !rec?.ci, canOut = !!isWork;
-  return `<div style="display:flex;gap:0">
+// ── 打刻 ──────────────────────────────────────────────
+function rClock(){
+  const t=today(),rec=records.find(r=>r.eid===selId&&r.date===t);
+  const h=calcH(rec?.ci,rec?.co),emp=employees.find(e=>e.id===selId);
+  const now=new Date();
+  const ts=`${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}:${String(now.getSeconds()).padStart(2,"0")}`;
+  const ds=now.toLocaleDateString("ja-JP",{year:"numeric",month:"long",day:"numeric",weekday:"short"});
+  const isWork=rec?.ci&&!rec?.co,isDone=rec?.ci&&rec?.co;
+  const status=isWork?`<span class="badge b-green">● 勤務中</span>`:isDone?`<span class="badge b-blue">✓ 退勤済み</span>`:`<span class="badge b-gray">未出勤</span>`;
+  const canIn=!rec?.ci,canOut=!!isWork;
+  const cur=emp?getCurrentSalary(emp):null;
+  return`<div style="display:flex;gap:0">
     ${sidebar()}
     <div class="layout-main" style="flex:1;padding:0 4px;max-width:440px">
       ${empPicker()}
-      ${emp ? `
+      ${emp?`
       <div style="margin-bottom:12px">
         <div style="font-size:18px;font-weight:700">${emp.name}${tb(emp.type)}</div>
-        ${emp.dept ? `<div style="font-size:13px;color:var(--gray);margin-top:2px">${emp.dept}</div>` : ""}
+        ${emp.dept?`<div style="font-size:13px;color:var(--gray);margin-top:2px">${emp.dept}</div>`:""}
       </div>
       <div style="background:var(--surface);border-radius:14px;padding:24px 16px;text-align:center;margin-bottom:12px">
         <div style="font-size:44px;font-weight:700;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1" id="clockDisp">${ts}</div>
@@ -304,40 +278,29 @@ function rClock() {
           style="background:${canIn?"var(--blue)":"var(--surface)"};color:${canIn?"#fff":"var(--gray)"}">⬆ 出勤</button>
         <button class="punch-btn" ${canOut?"":"disabled"} onclick="doClock('out')"
           style="background:${canOut?"var(--red-bg)":"var(--surface)"};color:${canOut?"var(--red)":"var(--gray)"};border:${canOut?"0.5px solid #F09595":"none"}">⬇ 退勤</button>
-      </div>` : `<div class="empty">従業員を選択してください</div>`}
+      </div>`:`<div class="empty">従業員を選択してください</div>`}
     </div>
   </div>`;
 }
-function doClock(dir) {
-  const t = today();
-  if (dir === "in") {
-    const n = nowHM(); records.push({id:"r"+Date.now(),eid:selId,date:t,ci:n,co:null});
-    logC("打刻",selId,t,null,{ci:n,co:null},"出勤打刻");
-  } else {
-    const r = records.find(r => r.eid===selId && r.date===t);
-    if (r) { const n = nowHM(); logC("打刻",selId,t,{ci:r.ci,co:r.co},{ci:r.ci,co:n},"退勤打刻"); r.co = n; }
-  }
-  persist(); render();
+function doClock(dir){
+  const t=today();
+  if(dir==="in"){const n=nowHM();records.push({id:"r"+Date.now(),eid:selId,date:t,ci:n,co:null});logC("打刻",selId,t,null,{ci:n,co:null},"出勤打刻");}
+  else{const r=records.find(r=>r.eid===selId&&r.date===t);if(r){const n=nowHM();logC("打刻",selId,t,{ci:r.ci,co:r.co},{ci:r.ci,co:n},"退勤打刻");r.co=n;}}
+  persist();render();
 }
 
-// ── 月次レポート ─────────────────────────────────────────
-function rReport() {
-  const mr = records.filter(r => r.date.startsWith(reportMonth));
-  const emp = employees.find(e => e.id===selId) || employees[0];
-  const empRecs = mr.filter(r => r.eid===emp.id).sort((a,b) => a.date.localeCompare(b.date));
-  const allRows = employees.map(e => {
-    const er = mr.filter(r => r.eid===e.id);
-    return { ...e,
-      th: er.reduce((s,r) => s+calcH(r.ci,r.co), 0),
-      wd: er.filter(r => r.ci).length,
-      ot: er.reduce((s,r) => s+Math.max(0,calcH(r.ci,r.co)-8), 0)
-    };
+// ── 月次レポート ───────────────────────────────────────
+function rReport(){
+  const mr=records.filter(r=>r.date.startsWith(reportMonth));
+  const emp=employees.find(e=>e.id===selId)||employees[0];
+  const empRecs=mr.filter(r=>r.eid===emp.id).sort((a,b)=>a.date.localeCompare(b.date));
+  const allRows=employees.map(e=>{
+    const er=mr.filter(r=>r.eid===e.id);
+    return{...e,th:er.reduce((s,r)=>s+calcH(r.ci,r.co),0),wd:er.filter(r=>r.ci).length,ot:er.reduce((s,r)=>s+Math.max(0,calcH(r.ci,r.co)-8),0)};
   });
-
-  const dayRows = empRecs.map(r => {
-    const h = calcH(r.ci,r.co), ot = Math.max(0,h-8);
-    const nCorr = corrections.filter(c => c.eid===emp.id && c.date===r.date).length;
-    if (ieId === r.id) return `<tr style="background:var(--blue-bg)"><td colspan="6" style="padding:0">
+  const dayRows=empRecs.map(r=>{
+    const h=calcH(r.ci,r.co),ot=Math.max(0,h-8),nCorr=corrections.filter(c=>c.eid===emp.id&&c.date===r.date).length;
+    if(ieId===r.id)return`<tr style="background:var(--blue-bg)"><td colspan="6" style="padding:0">
       <div class="edit-inline">
         <div><label>日付</label><input type="date" id="ei-d" value="${r.date}" style="width:148px"></div>
         <div><label>出勤</label><input type="time" id="ei-ci" value="${r.ci||""}" style="width:116px"></div>
@@ -348,9 +311,7 @@ function rReport() {
           <button class="btn btn-s btn-sm" onclick="ieId=null;render()">×</button>
         </div>
       </div></td></tr>`;
-    return `<tr>
-      <td>${r.date}</td>
-      <td>${r.ci||`<span style="color:var(--gray)">—</span>`}</td>
+    return`<tr><td>${r.date}</td><td>${r.ci||`<span style="color:var(--gray)">—</span>`}</td>
       <td>${r.co||`<span style="color:var(--gray)">未</span>`}</td>
       <td>${h>0?h.toFixed(1)+"h":`<span style="color:var(--gray)">—</span>`}</td>
       <td style="color:${ot>0?"var(--red)":"var(--gray)"}">${ot>0?ot.toFixed(1)+"h":"—"}</td>
@@ -358,49 +319,40 @@ function rReport() {
         ${nCorr?`<span class="badge b-orange" style="margin-left:0;margin-right:4px">修正${nCorr}</span>`:""}
         <button class="btn btn-w btn-sm" onclick="ieId='${r.id}';render()">✏</button>
         <button class="btn btn-d btn-sm" style="margin-left:3px" onclick="delRec('${r.id}','${emp.id}','${r.date}')">🗑</button>
-      </td>
-    </tr>`;
+      </td></tr>`;
   }).join("");
 
-  const typeClr = {打刻:"b-blue",修正:"b-orange",追加:"b-green",削除:"b-red"};
-  const filtered = corrFilter==="all" ? corrections : corrections.filter(c => c.type===corrFilter);
-  const corrRows = filtered.map(c => {
-    let diff = "";
-    if (c.type==="削除"&&c.before) diff=`<span class="diff-b">${c.before.ci||"—"}〜${c.before.co||"—"}</span>（削除）`;
-    else if (c.type==="追加"&&c.after) diff=`<span class="diff-a">${c.after.ci||"—"}〜${c.after.co||"—"}（追加）</span>`;
-    else if (c.before&&c.after) {
+  const typeClr={打刻:"b-blue",修正:"b-orange",追加:"b-green",削除:"b-red"};
+  const filtered=corrFilter==="all"?corrections:corrections.filter(c=>c.type===corrFilter);
+  const corrRows=filtered.map(c=>{
+    let diff="";
+    if(c.type==="削除"&&c.before)diff=`<span class="diff-b">${c.before.ci||"—"}〜${c.before.co||"—"}</span>（削除）`;
+    else if(c.type==="追加"&&c.after)diff=`<span class="diff-a">${c.after.ci||"—"}〜${c.after.co||"—"}（追加）</span>`;
+    else if(c.before&&c.after){
       const[bci,bco,aci,aco]=[c.before.ci||"—",c.before.co||"—",c.after.ci||"—",c.after.co||"—"];
       diff=`出勤:${bci!==aci?`<span class="diff-b">${bci}</span><span class="diff-a">${aci}</span>`:`${aci}`} 退勤:${bco!==aco?`<span class="diff-b">${bco}</span><span class="diff-a">${aco}</span>`:`${aco}`}`;
-    } else if (c.after) diff=`<span class="diff-a">${c.after.ci||"—"}〜${c.after.co||"—"}</span>`;
-    return `<tr>
-      <td style="white-space:nowrap;color:var(--gray);font-size:11px">${fdt(c.ts)}</td>
+    }else if(c.after)diff=`<span class="diff-a">${c.after.ci||"—"}〜${c.after.co||"—"}</span>`;
+    return`<tr><td style="white-space:nowrap;color:var(--gray);font-size:11px">${fdt(c.ts)}</td>
       <td><span class="badge ${typeClr[c.type]||"b-gray"}" style="margin-left:0">${c.type}</span></td>
-      <td style="font-weight:600">${c.name}</td>
-      <td>${c.date}</td>
-      <td style="font-size:12px">${diff}</td>
-      <td style="color:var(--gray);font-size:11px">${c.note||""}</td>
-    </tr>`;
+      <td style="font-weight:600">${c.name}</td><td>${c.date}</td>
+      <td style="font-size:12px">${diff}</td><td style="color:var(--gray);font-size:11px">${c.note||""}</td></tr>`;
   }).join("");
 
-  const corrPanel = showCorr ? `
-    <div class="corr-panel">
-      <div class="corr-head">
-        <div style="font-size:14px;font-weight:700">📋 修正履歴</div>
-        <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
-          ${["all","打刻","修正","追加","削除"].map(f => {
-            const n = f==="all" ? corrections.length : corrections.filter(c => c.type===f).length;
-            return `<button class="btn btn-sm ${corrFilter===f?"btn-p":"btn-s"}" onclick="corrFilter='${f}';render()">${f==="all"?"全":f}(${n})</button>`;
-          }).join("")}
-          <button class="btn btn-s btn-sm" onclick="showCorr=false;render()">✕</button>
-        </div>
+  const corrPanel=showCorr?`<div class="corr-panel">
+    <div class="corr-head">
+      <div style="font-size:14px;font-weight:700">📋 修正履歴</div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
+        ${["all","打刻","修正","追加","削除"].map(f=>{const n=f==="all"?corrections.length:corrections.filter(c=>c.type===f).length;return`<button class="btn btn-sm ${corrFilter===f?"btn-p":"btn-s"}" onclick="corrFilter='${f}';render()">${f==="all"?"全":f}(${n})</button>`;}).join("")}
+        <button class="btn btn-s btn-sm" onclick="showCorr=false;render()">✕</button>
       </div>
-      ${!corrections.length ? `<div class="empty">修正履歴がありません</div>` : `<div class="tbl-wrap"><table>
-        <thead><tr><th>日時</th><th>種別</th><th>対象者</th><th>対象日</th><th>変更内容</th><th>理由</th></tr></thead>
-        <tbody>${corrRows||`<tr><td colspan="6" class="empty">該当なし</td></tr>`}</tbody>
-      </table></div>`}
-    </div>` : "";
+    </div>
+    ${!corrections.length?`<div class="empty">修正履歴がありません</div>`:`<div class="tbl-wrap"><table>
+      <thead><tr><th>日時</th><th>種別</th><th>対象者</th><th>対象日</th><th>変更内容</th><th>理由</th></tr></thead>
+      <tbody>${corrRows||`<tr><td colspan="6" class="empty">該当なし</td></tr>`}</tbody>
+    </table></div>`}
+  </div>`:""
 
-  return `<div style="display:flex;gap:0">
+  return`<div style="display:flex;gap:0">
     ${sidebar()}
     <div class="layout-main" style="flex:1;padding:0 4px;min-width:0">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap">
@@ -417,85 +369,69 @@ function rReport() {
         <div class="stat"><div class="stat-label">延べ出勤</div><div class="stat-value">${allRows.reduce((s,e)=>s+e.wd,0)}日</div></div>
       </div>
       ${empPicker("従業員を選択")}
-      <div class="card">
-        <div class="tbl-wrap"><table>
-          <thead><tr><th>氏名</th><th>雇用</th><th>出勤</th><th>勤務</th><th>残業</th></tr></thead>
-          <tbody>${allRows.map(e => `<tr style="cursor:pointer;background:${e.id===selId?"var(--blue-bg)":"transparent"}" onclick="selId='${e.id}';ieId=null;render()">
-            <td style="font-weight:700">${e.name}${e.id===selId?`<span class="badge b-blue" style="margin-left:5px">選択中</span>`:""}</td>
-            <td>${tb(e.type)}</td><td>${e.wd}日</td><td>${e.th.toFixed(1)}h</td>
-            <td style="color:${e.ot>0?"var(--red)":"var(--gray)"}">${e.ot.toFixed(1)}h</td>
-          </tr>`).join("")}</tbody>
-        </table></div>
-      </div>
+      <div class="card"><div class="tbl-wrap"><table>
+        <thead><tr><th>氏名</th><th>雇用</th><th>出勤</th><th>勤務</th><th>残業</th></tr></thead>
+        <tbody>${allRows.map(e=>`<tr style="cursor:pointer;background:${e.id===selId?"var(--blue-bg)":"transparent"}" onclick="selId='${e.id}';ieId=null;render()">
+          <td style="font-weight:700">${e.name}${e.id===selId?`<span class="badge b-blue" style="margin-left:5px">選択中</span>`:""}</td>
+          <td>${tb(e.type)}</td><td>${e.wd}日</td><td>${e.th.toFixed(1)}h</td>
+          <td style="color:${e.ot>0?"var(--red)":"var(--gray)"}">${e.ot.toFixed(1)}h</td>
+        </tr>`).join("")}</tbody>
+      </table></div></div>
       ${corrPanel}
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
         <div style="font-size:14px;font-weight:700">${emp.name} の日別明細</div>
         <button class="btn btn-p btn-sm" onclick="ieId='new_${emp.id}';render()">＋ 打刻追加</button>
       </div>
-      <div class="card">
-        <div class="tbl-wrap"><table>
-          <thead><tr><th>日付</th><th>出勤</th><th>退勤</th><th>勤務</th><th>残業</th><th>操作</th></tr></thead>
-          <tbody>
-            ${empRecs.length ? dayRows : `<tr><td colspan="6" class="empty">打刻データなし</td></tr>`}
-            ${ieId==="new_"+emp.id ? `<tr style="background:var(--blue-bg)"><td colspan="6" style="padding:0">
-              <div class="edit-inline">
-                <div><label>日付</label><input type="date" id="nw-d" value="${reportMonth}-01" style="width:148px"></div>
-                <div><label>出勤</label><input type="time" id="nw-ci" value="09:00" style="width:116px"></div>
-                <div><label>退勤</label><input type="time" id="nw-co" value="18:00" style="width:116px"></div>
-                <div style="flex:1;min-width:140px"><label>修正理由</label><input type="text" id="nw-n" placeholder="例: 打ち忘れ"></div>
-                <div style="display:flex;gap:6px;padding-top:18px">
-                  <button class="btn btn-p btn-sm" onclick="saveNew('${emp.id}')">✓ 追加</button>
-                  <button class="btn btn-s btn-sm" onclick="ieId=null;render()">×</button>
-                </div>
-              </div></td></tr>` : ""}
-          </tbody>
-        </table></div>
-      </div>
+      <div class="card"><div class="tbl-wrap"><table>
+        <thead><tr><th>日付</th><th>出勤</th><th>退勤</th><th>勤務</th><th>残業</th><th>操作</th></tr></thead>
+        <tbody>
+          ${empRecs.length?dayRows:`<tr><td colspan="6" class="empty">打刻データなし</td></tr>`}
+          ${ieId==="new_"+emp.id?`<tr style="background:var(--blue-bg)"><td colspan="6" style="padding:0">
+            <div class="edit-inline">
+              <div><label>日付</label><input type="date" id="nw-d" value="${reportMonth}-01" style="width:148px"></div>
+              <div><label>出勤</label><input type="time" id="nw-ci" value="09:00" style="width:116px"></div>
+              <div><label>退勤</label><input type="time" id="nw-co" value="18:00" style="width:116px"></div>
+              <div style="flex:1;min-width:140px"><label>修正理由</label><input type="text" id="nw-n" placeholder="例: 打ち忘れ"></div>
+              <div style="display:flex;gap:6px;padding-top:18px">
+                <button class="btn btn-p btn-sm" onclick="saveNew('${emp.id}')">✓ 追加</button>
+                <button class="btn btn-s btn-sm" onclick="ieId=null;render()">×</button>
+              </div>
+            </div></td></tr>`:""}
+        </tbody>
+      </table></div></div>
     </div>
   </div>`;
 }
-
-function saveEdit(rid, eid) {
-  const r = records.find(x => x.id===rid); if (!r) return;
-  const nd=document.getElementById("ei-d")?.value||r.date;
-  const nci=document.getElementById("ei-ci")?.value||"";
-  const nco=document.getElementById("ei-co")?.value||"";
-  const note=document.getElementById("ei-n")?.value||"手動修正";
-  const before={ci:r.ci,co:r.co,date:r.date};
-  r.date=nd; r.ci=nci||null; r.co=nco||null;
-  logC("修正",eid,nd,before,{ci:r.ci,co:r.co,date:nd},note);
-  ieId=null; persist(); render();
+function saveEdit(rid,eid){
+  const r=records.find(x=>x.id===rid);if(!r)return;
+  const nd=document.getElementById("ei-d")?.value||r.date,nci=document.getElementById("ei-ci")?.value||"",nco=document.getElementById("ei-co")?.value||"",note=document.getElementById("ei-n")?.value||"手動修正";
+  const before={ci:r.ci,co:r.co,date:r.date};r.date=nd;r.ci=nci||null;r.co=nco||null;
+  logC("修正",eid,nd,before,{ci:r.ci,co:r.co,date:nd},note);ieId=null;persist();render();
 }
-function saveNew(eid) {
-  const date=document.getElementById("nw-d")?.value;
-  const ci=document.getElementById("nw-ci")?.value||"";
-  const co=document.getElementById("nw-co")?.value||"";
-  const note=document.getElementById("nw-n")?.value||"打刻追加";
-  if (!date) { alert("日付を入力してください"); return; }
-  const rec={id:"r"+Date.now(),eid,date,ci:ci||null,co:co||null};
-  records.push(rec);
-  logC("追加",eid,date,null,{ci:rec.ci,co:rec.co},note);
-  ieId=null; persist(); render();
+function saveNew(eid){
+  const date=document.getElementById("nw-d")?.value,ci=document.getElementById("nw-ci")?.value||"",co=document.getElementById("nw-co")?.value||"",note=document.getElementById("nw-n")?.value||"打刻追加";
+  if(!date){alert("日付を入力してください");return;}
+  const rec={id:"r"+Date.now(),eid,date,ci:ci||null,co:co||null};records.push(rec);
+  logC("追加",eid,date,null,{ci:rec.ci,co:rec.co},note);ieId=null;persist();render();
 }
-function delRec(rid, eid, date) {
-  if (!confirm("この打刻データを削除しますか？")) return;
-  const r=records.find(x => x.id===rid);
-  if (r) logC("削除",eid,date,{ci:r.ci,co:r.co},null,"打刻削除");
-  records=records.filter(x => x.id!==rid);
-  persist(); render();
+function delRec(rid,eid,date){
+  if(!confirm("この打刻データを削除しますか？"))return;
+  const r=records.find(x=>x.id===rid);if(r)logC("削除",eid,date,{ci:r.ci,co:r.co},null,"打刻削除");
+  records=records.filter(x=>x.id!==rid);persist();render();
 }
 
-// ── 給与計算 ─────────────────────────────────────────────
-function rPayroll() {
-  const mr = records.filter(r => r.date.startsWith(reportMonth));
-  const rows = employees.map(emp => {
-    const er=mr.filter(r => r.eid===emp.id);
+// ── 給与計算 ───────────────────────────────────────────
+function rPayroll(){
+  const mr=records.filter(r=>r.date.startsWith(reportMonth));
+  const rows=employees.map(emp=>{
+    const er=mr.filter(r=>r.eid===emp.id);
     const th=er.reduce((s,r)=>s+calcH(r.ci,r.co),0);
     const ot=er.reduce((s,r)=>s+Math.max(0,calcH(r.ci,r.co)-8),0);
-    return {...emp,th,ot,p:calcPay(emp,th,ot),recs:er.sort((a,b)=>a.date.localeCompare(b.date))};
+    const entry=getSalaryEntry(emp,reportMonth);
+    return{...emp,th,ot,p:calcPay(emp,th,ot,reportMonth),recs:er.sort((a,b)=>a.date.localeCompare(b.date)),entry};
   });
   const wp=rows.filter(e=>e.p),tot=wp.reduce((s,e)=>s+e.p.total,0),totOT=wp.reduce((s,e)=>s+e.p.op,0);
-  return `<div style="padding:0 4px">
+  return`<div style="padding:0 4px">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
       <div style="font-size:17px;font-weight:700">給与計算</div>
       <input type="month" value="${reportMonth}" onchange="reportMonth=this.value;render()" style="font-size:14px;width:auto;padding:6px 8px">
@@ -506,58 +442,127 @@ function rPayroll() {
       <div class="stat"><div class="stat-label">給与設定済み</div><div class="stat-value">${wp.length}名</div></div>
     </div>
     <div class="card"><div class="tbl-wrap"><table>
-      <thead><tr><th>氏名</th><th>雇用</th><th>勤務</th><th>残業</th><th>残業代</th><th>支給</th></tr></thead>
+      <thead><tr><th>氏名</th><th>雇用</th><th>適用給与</th><th>勤務</th><th>残業</th><th>残業代</th><th>支給</th></tr></thead>
       <tbody>
-        ${rows.map(e => { const p=e.p; return `
+        ${rows.map(e=>{const p=e.p,entry=e.entry;return`
           <tr style="cursor:pointer" onclick="toggleRow('py${e.id}')">
             <td style="font-weight:700">${e.name}</td><td>${tb(e.type)}</td>
+            <td style="font-size:12px;color:var(--gray)">${entry?(e.type==="正社員"?`月給 ${yen(entry.salary)}`:`時給 ${yen(entry.salary)}`):"—"}</td>
             <td>${e.th.toFixed(1)}h</td>
             <td style="color:${e.ot>0?"var(--red)":"var(--gray)"}">${e.ot.toFixed(1)}h</td>
             <td style="color:${p?.op>0?"var(--red)":"var(--gray)"}">${p?yen(p.op):"—"}</td>
             <td style="font-weight:700;color:${p?"var(--blue-text)":"var(--gray)"}">${p?yen(p.total):"未設定"}</td>
           </tr>
-          <tr id="py${e.id}" style="display:none;background:#f5f4f1"><td colspan="6" style="padding:12px">
-            ${!p ? `<div style="color:var(--gray);font-size:13px">「従業員管理」で給与を設定してください。</div>` : `
+          <tr id="py${e.id}" style="display:none;background:#f5f4f1"><td colspan="7" style="padding:12px">
+            ${!p?`<div style="color:var(--gray);font-size:13px">「従業員管理」で給与を設定してください。</div>`:`
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-              <div>
-                <div style="font-weight:700;font-size:12px;color:var(--gray);margin-bottom:6px">給与内訳</div>
-                ${e.type==="正社員" ? `
+              <div><div style="font-weight:700;font-size:12px;color:var(--gray);margin-bottom:6px">給与内訳（${reportMonth}）</div>
+                ${e.type==="正社員"?`
                   <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--gray)">基本給</span><span>${yen(p.base)}</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--gray)">所定労働時間</span><span>${p.stdH}h</span></div>
                   <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--gray)">時間単価</span><span>${yen(p.hr)}/h</span></div>
                   <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--red)">残業代×1.25</span><span style="color:var(--red)">${yen(p.op)}</span></div>
-                ` : `
+                `:`
                   <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--gray)">時給</span><span>${yen(p.hr)}/h</span></div>
                   <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--gray)">通常給与</span><span>${yen(p.base)}</span></div>
                   <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--red)">残業代×1.25</span><span style="color:var(--red)">${yen(p.op)}</span></div>
                 `}
                 <div style="display:flex;justify-content:space-between;padding:5px 0;font-weight:700;color:var(--blue-text)"><span>支給合計</span><span>${yen(p.total)}</span></div>
               </div>
-              <div>
-                <div style="font-weight:700;font-size:12px;color:var(--gray);margin-bottom:6px">日別明細</div>
-                ${e.recs.map(r => { const h=calcH(r.ci,r.co),ot=Math.max(0,h-8),dp=e.type==="正社員"?Math.round(p.hr*1.25*ot):Math.round(p.hr*(h-ot)+p.hr*1.25*ot); return `
+              <div><div style="font-weight:700;font-size:12px;color:var(--gray);margin-bottom:6px">日別明細</div>
+                ${e.recs.map(r=>{const h=calcH(r.ci,r.co),ot=Math.max(0,h-8),dp=e.type==="正社員"?Math.round(p.hr*1.25*ot):Math.round(p.hr*(h-ot)+p.hr*1.25*ot);return`
                   <div style="display:flex;justify-content:space-between;font-size:12px;padding:2px 0;border-bottom:0.5px solid var(--border)">
                     <span>${r.date.slice(5)} ${r.ci||"—"}〜${r.co||"…"} <span style="color:${ot>0?"var(--red)":"var(--gray)"}">残${ot.toFixed(1)}h</span></span>
                     <span>${e.type==="パート"?yen(dp):"—"}</span>
-                  </div>`; }).join("")}
+                  </div>`;}).join("")}
               </div>
             </div>`}
           </td></tr>`;}).join("")}
-        <tr style="background:var(--surface)"><td colspan="5" style="padding:9px 10px;font-weight:700">合計</td>
+        <tr style="background:var(--surface)"><td colspan="6" style="padding:9px 10px;font-weight:700">合計</td>
           <td style="padding:9px 10px;font-weight:700;color:var(--blue-text)">${yen(tot)}</td></tr>
       </tbody>
     </table></div></div>
-    <div style="font-size:12px;color:var(--gray);margin-top:6px">行をクリックで内訳表示</div>
+    <div style="font-size:12px;color:var(--gray);margin-top:6px">行をクリックで内訳表示 ／ 「適用給与」はその月に有効な給与を使用しています</div>
   </div>`;
 }
-function toggleRow(id) { const el=document.getElementById(id); if(el) el.style.display=el.style.display==="none"?"table-row":"none"; }
+function toggleRow(id){const el=document.getElementById(id);if(el)el.style.display=el.style.display==="none"?"table-row":"none";}
 
-// ── 従業員管理 ───────────────────────────────────────────
-function rAdmin() {
-  const rows = employees.map(emp => {
-    const isE = editId === emp.id;
-    const as = `background:${abg(emp.type)};color:${acl(emp.type)}`;
-    const st = emp.salary>0 ? (emp.type==="正社員" ? `月給 ${yen(emp.salary)}` : `時給 ${yen(emp.salary)}`) : `<span style="color:var(--orange)">給与未設定</span>`;
-    const ep = isE ? `<div style="background:var(--blue-bg);border-top:0.5px solid var(--border)">
+// ── 給与履歴操作 ───────────────────────────────────────
+function addSalaryEntry(eid){
+  const from=document.getElementById(`sh-from-${eid}`)?.value;
+  const salary=Number(document.getElementById(`sh-sal-${eid}`)?.value)||0;
+  const stdH=Number(document.getElementById(`sh-h-${eid}`)?.value)||160;
+  if(!from){alert("適用開始月を入力してください");return;}
+  if(!salary){alert("給与を入力してください");return;}
+  const emp=employees.find(e=>e.id===eid);if(!emp)return;
+  // 同じ月が既にあれば上書き
+  const existing=emp.salaryHistory.findIndex(h=>h.from===from);
+  if(existing>=0) emp.salaryHistory[existing]={from,salary,stdH};
+  else emp.salaryHistory.push({from,salary,stdH});
+  emp.salaryHistory.sort((a,b)=>a.from.localeCompare(b.from));
+  salaryFormId=null;persist();render();
+}
+function deleteSalaryEntry(eid,from){
+  const emp=employees.find(e=>e.id===eid);if(!emp)return;
+  if(emp.salaryHistory.length<=1){alert("給与履歴は最低1件必要です");return;}
+  if(!confirm(`${from} の給与設定を削除しますか？`))return;
+  emp.salaryHistory=emp.salaryHistory.filter(h=>h.from!==from);
+  persist();render();
+}
+
+// ── 従業員管理 ─────────────────────────────────────────
+function rAdmin(){
+  const curMonth=reportMonth||"2026-07";
+  const rows=employees.map(emp=>{
+    const isE=editId===emp.id;
+    const as=`background:${abg(emp.type)};color:${acl(emp.type)}`;
+    const cur=getCurrentSalary(emp);
+    const curText=cur?.salary>0?(emp.type==="正社員"?`月給 ${yen(cur.salary)}`:`時給 ${yen(cur.salary)}`):
+      `<span style="color:var(--orange)">給与未設定</span>`;
+
+    // 給与履歴タイムライン
+    const hist=[...(emp.salaryHistory||[])].sort((a,b)=>b.from.localeCompare(a.from));
+    const now=new Date();
+    const thisMonth=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}`;
+    const histHtml=hist.map((h,i)=>{
+      const isCurrent=i===0;
+      return`<div class="salary-item">
+        <div class="salary-dot ${isCurrent?"":"past"}"></div>
+        <div class="salary-meta">
+          <div class="salary-amount">${emp.type==="正社員"?`月給 ${yen(h.salary)}`:`時給 ${yen(h.salary)}`}
+            ${emp.type==="正社員"?`<span style="font-size:11px;color:var(--gray);font-weight:400;margin-left:4px">（所定${h.stdH}h）</span>`:""}
+          </div>
+          <div class="salary-from">${h.from} 〜 ${isCurrent?"現在":hist[i-1]?hist[i-1].from+" 前月まで":""}</div>
+        </div>
+        <div style="display:flex;gap:4px">
+          ${isCurrent?`<span class="badge b-green" style="margin-left:0">現在</span>`:""}
+          <button class="btn btn-d btn-sm" onclick="deleteSalaryEntry('${emp.id}','${h.from}')">削除</button>
+        </div>
+      </div>`;
+    }).join("");
+
+    // 給与変更フォーム
+    const showForm=salaryFormId===emp.id;
+    const formHtml=showForm?`<div style="padding:12px 14px;background:var(--green-bg);border-top:0.5px solid var(--border)">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--green)">💴 給与を変更（新しい給与を追加）</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+        <div><label>適用開始月</label><input type="month" id="sh-from-${emp.id}" value="${thisMonth}"></div>
+        <div><label>${emp.type==="正社員"?"新しい月給（円）":"新しい時給（円）"}</label>
+          <input type="number" min="0" id="sh-sal-${emp.id}" placeholder="${emp.type==="正社員"?"例: 300000":"例: 1300"}"></div>
+      </div>
+      ${emp.type==="正社員"?`<div style="max-width:50%;margin-bottom:8px"><label>所定月間労働時間 (h)</label>
+        <input type="number" min="1" id="sh-h-${emp.id}" value="${cur?.stdH||160}"></div>`:""}
+      <div style="background:var(--white);border-radius:var(--r);padding:10px;margin-bottom:10px;font-size:12px;color:var(--orange)">
+        ⚠ 指定した月以降の給与計算に新しい金額が使われます。過去の月は変わりません。
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-p" onclick="addSalaryEntry('${emp.id}')">✓ 追加・更新</button>
+        <button class="btn btn-s" onclick="salaryFormId=null;render()">キャンセル</button>
+      </div>
+    </div>`:"";
+
+    const ep=isE?`<div style="background:var(--blue-bg);border-top:0.5px solid var(--border)">
+      <!-- 基本情報編集 -->
       <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:0.5px solid #B5D4F4">
         <div class="avatar" id="pa${emp.id}" style="${as}">${emp.name?emp.name[0]:"?"}</div>
         <div>
@@ -565,7 +570,6 @@ function rAdmin() {
           <div style="font-size:12px;color:var(--gray);margin-top:2px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
             <span id="pd${emp.id}">${emp.dept||""}</span>
             <span id="pt${emp.id}">${tb(emp.type)}</span>
-            <span id="ps${emp.id}" style="color:var(--blue-text);font-weight:700">${emp.salary>0?(emp.type==="正社員"?`月給 ${yen(emp.salary)}`:`時給 ${yen(emp.salary)}`):""}  </span>
           </div>
         </div>
       </div>
@@ -573,43 +577,56 @@ function rAdmin() {
         <div><label>氏名</label><input id="fn${emp.id}" value="${emp.name}" oninput="lp('${emp.id}')"></div>
         <div><label>部署</label><input id="fd${emp.id}" value="${emp.dept||""}" oninput="lp('${emp.id}')"></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 8px">
-        <div><label>雇用区分</label><select id="ft${emp.id}" onchange="lp('${emp.id}')">
+      <div style="padding:0 14px 8px">
+        <label>雇用区分</label>
+        <select id="ft${emp.id}" onchange="lp('${emp.id}')" style="max-width:200px">
           <option ${emp.type==="正社員"?"selected":""}>正社員</option>
           <option ${emp.type==="パート"?"selected":""}>パート</option>
-        </select></div>
-        <div><label id="fl${emp.id}">${emp.type==="正社員"?"月給（円）":"時給（円）"}</label>
-          <input id="fs${emp.id}" type="number" min="0" value="${emp.salary||""}" oninput="lp('${emp.id}')"></div>
+        </select>
       </div>
-      <div id="fhw${emp.id}" style="padding:0 14px 8px;max-width:50%;${emp.type==="パート"?"display:none":""}">
-        <label>所定月間労働時間(h)</label><input id="fh${emp.id}" type="number" min="1" value="${emp.stdH||160}">
-      </div>
-      <div style="display:flex;gap:8px;padding:0 14px 14px;align-items:center;flex-wrap:wrap">
-        <button class="btn btn-p" onclick="svEdit('${emp.id}')">✓ 変更を保存</button>
-        <button class="btn btn-s" onclick="editId=null;render()">キャンセル</button>
+      <div style="display:flex;gap:8px;padding:0 14px 12px;align-items:center;flex-wrap:wrap">
+        <button class="btn btn-p" onclick="svEdit('${emp.id}')">✓ 基本情報を保存</button>
+        <button class="btn btn-s" onclick="editId=null;salaryFormId=null;render()">閉じる</button>
         <span class="save-pill"></span>
       </div>
-    </div>` : "";
-    return `<div style="border-bottom:0.5px solid var(--border)">
+
+      <!-- 給与履歴 -->
+      <div style="border-top:0.5px solid var(--border)">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface)">
+          <div style="font-size:13px;font-weight:700">💴 給与履歴</div>
+          <button class="btn btn-p btn-sm" onclick="salaryFormId='${emp.id}';render()">＋ 給与を変更</button>
+        </div>
+        ${formHtml}
+        <div class="salary-timeline">
+          ${hist.length?histHtml:`<div style="color:var(--gray);font-size:13px;padding:8px 0">給与が設定されていません</div>`}
+        </div>
+      </div>
+    </div>`:formHtml;
+
+    return`<div style="border-bottom:0.5px solid var(--border)">
       <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:${isE?"var(--blue-bg)":"transparent"}">
         <div class="avatar" style="${as}">${emp.name?emp.name[0]:"?"}</div>
         <div style="flex:1;min-width:0">
           <div style="font-weight:700">${emp.name}${tb(emp.type)}</div>
-          <div style="font-size:12px;color:var(--gray);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${emp.dept?emp.dept+" · ":""}${st}</div>
+          <div style="font-size:12px;color:var(--gray);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+            ${emp.dept?emp.dept+" · ":""}${curText}
+            ${hist.length>1?`<span class="badge b-gray" style="margin-left:4px">履歴${hist.length}件</span>`:""}
+          </div>
         </div>
         <div style="display:flex;gap:6px;flex-shrink:0">
-          <button class="btn ${isE?"btn-s":"btn-p"} btn-sm" onclick="editId=${isE?"null":"'"+emp.id+"'"};render()">${isE?"✕ 閉じる":"✏ 編集"}</button>
+          <button class="btn ${isE?"btn-s":"btn-p"} btn-sm" onclick="editId=${isE?"null":"'"+emp.id+"'"};salaryFormId=null;render()">${isE?"✕ 閉じる":"✏ 編集"}</button>
           <button class="btn btn-d btn-sm" onclick="if(confirm('${emp.name}を削除しますか？'))delEmp('${emp.id}')">🗑</button>
         </div>
       </div>${ep}
     </div>`;
   }).join("");
 
-  return `<div style="max-width:560px;padding:0 4px">
+  return`<div style="max-width:580px;padding:0 4px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
       <div style="font-size:17px;font-weight:700">従業員管理</div>
       <span class="save-pill"></span>
     </div>
+    <!-- 追加フォーム -->
     <div style="background:var(--surface);border-radius:12px;padding:14px;margin-bottom:12px">
       <div style="font-size:13px;font-weight:700;margin-bottom:10px">新しい従業員を追加</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
@@ -623,55 +640,53 @@ function rAdmin() {
         <div><label id="nsl">月給（円）</label><input id="ns" type="number" min="0" placeholder="280000"></div>
       </div>
       <div id="nhw" style="max-width:50%;margin-bottom:8px"><label>所定月間労働時間(h)</label><input id="nh" type="number" value="160" min="1"></div>
+      <div style="margin-bottom:8px"><label>給与の適用開始月</label><input type="month" id="nfrom" style="max-width:200px"></div>
       <button class="btn btn-p" style="width:100%" onclick="addEmp()">＋ 追加</button>
     </div>
-    <div style="font-size:12px;color:var(--gray);margin-bottom:6px">登録済み ${employees.length}名</div>
-    <div class="card">${employees.length ? rows : `<div class="empty">従業員が登録されていません</div>`}</div>
+    <div style="font-size:12px;color:var(--gray);margin-bottom:6px">登録済み ${employees.length}名 ／ 「編集」から給与変更・履歴確認ができます</div>
+    <div class="card">${employees.length?rows:`<div class="empty">従業員が登録されていません</div>`}</div>
   </div>`;
 }
+function lp(id){
+  const g=q=>document.getElementById(q);
+  const name=g(`fn${id}`)?.value||"",dept=g(`fd${id}`)?.value||"",type=g(`ft${id}`)?.value||"パート";
+  if(g(`pn${id}`))g(`pn${id}`).textContent=name||"氏名を入力";
+  if(g(`pd${id}`))g(`pd${id}`).textContent=dept;
+  if(g(`pt${id}`))g(`pt${id}`).innerHTML=tb(type);
+  if(g(`pa${id}`)){g(`pa${id}`).textContent=name?name[0]:"?";g(`pa${id}`).style.background=abg(type);g(`pa${id}`).style.color=acl(type);}
+}
+function svEdit(id){
+  const name=document.getElementById(`fn${id}`)?.value?.trim();
+  if(!name){alert("氏名を入力してください");return;}
+  const emp=employees.find(e=>e.id===id);if(!emp)return;
+  emp.name=name;emp.dept=document.getElementById(`fd${id}`)?.value?.trim()||"";
+  emp.type=document.getElementById(`ft${id}`)?.value||"パート";
+  persist();render();
+}
+function addEmp(){
+  const name=document.getElementById("nn")?.value?.trim();
+  if(!name){alert("氏名を入力してください");return;}
+  const salary=Number(document.getElementById("ns")?.value)||0;
+  const stdH=Number(document.getElementById("nh")?.value)||160;
+  const now=new Date();
+  const defMonth=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}`;
+  const from=document.getElementById("nfrom")?.value||defMonth;
+  employees.push({
+    id:"e"+Date.now(),name,
+    dept:document.getElementById("nd")?.value?.trim()||"",
+    type:document.getElementById("nt")?.value||"正社員",
+    stdH,
+    salaryHistory:salary?[{from,salary,stdH}]:[]
+  });
+  persist();render();
+}
+function delEmp(id){
+  employees=employees.filter(e=>e.id!==id);records=records.filter(r=>r.eid!==id);
+  if(selId===id)selId=employees[0]?.id||null;if(editId===id)editId=null;
+  persist();render();
+}
 
-function lp(id) {
-  const g = q => document.getElementById(q);
-  const name=g(`fn${id}`)?.value||"", dept=g(`fd${id}`)?.value||"", type=g(`ft${id}`)?.value||"パート", sal=Number(g(`fs${id}`)?.value)||0;
-  if(g(`pn${id}`)) g(`pn${id}`).textContent = name || "氏名を入力";
-  if(g(`pd${id}`)) g(`pd${id}`).textContent = dept;
-  if(g(`pt${id}`)) g(`pt${id}`).innerHTML = tb(type);
-  if(g(`ps${id}`)) g(`ps${id}`).textContent = sal>0 ? (type==="正社員" ? `月給 ${yen(sal)}` : `時給 ${yen(sal)}`) : "";
-  if(g(`pa${id}`)) { g(`pa${id}`).textContent=name?name[0]:"?"; g(`pa${id}`).style.background=abg(type); g(`pa${id}`).style.color=acl(type); }
-  if(g(`fl${id}`)) g(`fl${id}`).textContent = type==="正社員" ? "月給（円）" : "時給（円）";
-  if(g(`fhw${id}`)) g(`fhw${id}`).style.display = type==="正社員" ? "block" : "none";
-}
-function svEdit(id) {
-  const name = document.getElementById(`fn${id}`)?.value?.trim();
-  if (!name) { alert("氏名を入力してください"); return; }
-  const emp = employees.find(e => e.id===id); if (!emp) return;
-  emp.name   = name;
-  emp.dept   = document.getElementById(`fd${id}`)?.value?.trim() || "";
-  emp.type   = document.getElementById(`ft${id}`)?.value || "パート";
-  emp.salary = Number(document.getElementById(`fs${id}`)?.value) || 0;
-  emp.stdH   = Number(document.getElementById(`fh${id}`)?.value) || 160;
-  editId = null; persist(); render();
-}
-function addEmp() {
-  const name = document.getElementById("nn")?.value?.trim();
-  if (!name) { alert("氏名を入力してください"); return; }
-  employees.push({ id:"e"+Date.now(), name, dept:document.getElementById("nd")?.value?.trim()||"", type:document.getElementById("nt")?.value||"正社員", salary:Number(document.getElementById("ns")?.value)||0, stdH:Number(document.getElementById("nh")?.value)||160 });
-  persist(); render();
-}
-function delEmp(id) {
-  employees = employees.filter(e => e.id!==id);
-  records   = records.filter(r => r.eid!==id);
-  if (selId===id) selId = employees[0]?.id || null;
-  if (editId===id) editId = null;
-  persist(); render();
-}
-
-setInterval(() => {
-  const el = document.getElementById("clockDisp"); if (!el) return;
-  const d = new Date();
-  el.textContent = `${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}:${String(d.getSeconds()).padStart(2,"0")}`;
-}, 1000);
-
+setInterval(()=>{const el=document.getElementById("clockDisp");if(!el)return;const d=new Date();el.textContent=`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}:${String(d.getSeconds()).padStart(2,"0")}`;},1000);
 render();
 </script>
 </body>
