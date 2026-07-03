@@ -89,6 +89,7 @@ tr:last-child td{border-bottom:none}
   <button class="nav-btn active" id="nav-report"  onclick="go('report')">月次レポート</button>
   <button class="nav-btn" id="nav-payroll" onclick="go('payroll')">給与計算</button>
   <button class="nav-btn" id="nav-admin"   onclick="go('admin')">従業員管理</button>
+  <button class="nav-btn" id="nav-settings" onclick="go('settings')">設定</button>
 </nav>
 <div class="bottom-nav">
   <div class="bottom-nav-inner">
@@ -96,6 +97,7 @@ tr:last-child td{border-bottom:none}
     <button class="bnav-btn active" id="bn-report"  onclick="go('report')"><span class="bnav-icon">📊</span>レポート</button>
     <button class="bnav-btn" id="bn-payroll" onclick="go('payroll')"><span class="bnav-icon">💴</span>給与</button>
     <button class="bnav-btn" id="bn-admin"   onclick="go('admin')"><span class="bnav-icon">👥</span>従業員</button>
+    <button class="bnav-btn" id="bn-settings" onclick="go('settings')"><span class="bnav-icon">⚙</span>設定</button>
   </div>
 </div>
 <div id="app"></div>
@@ -103,6 +105,23 @@ tr:last-child td{border-bottom:none}
 const STORE_KEY = "kintai_v1";
 function loadData(){try{const r=localStorage.getItem(STORE_KEY);if(r)return JSON.parse(r);}catch(_){}return null;}
 function saveData(d){try{localStorage.setItem(STORE_KEY,JSON.stringify(d));return true;}catch(_){return false;}}
+
+// ── 設定（Gist同期・PINロック） ─────────────────────────
+const SETTINGS_KEY = "kintai_settings_v1";
+const PIN_UNLOCK_KEY = "kintai_pin_unlock";
+const PIN_UNLOCK_MS = 8*60*60*1000; // 8時間
+function loadSettings(){try{const r=localStorage.getItem(SETTINGS_KEY);if(r)return JSON.parse(r);}catch(_){}return{};}
+function saveSettings(s){try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(s));return true;}catch(_){return false;}}
+let settings=Object.assign({gistId:"",token:"",pin:"",pinEnabled:false,lastSync:null},loadSettings());
+function isPinUnlocked(){
+  if(!settings.pinEnabled)return true;
+  try{
+    const t=Number(localStorage.getItem(PIN_UNLOCK_KEY));
+    return t&&(Date.now()-t)<PIN_UNLOCK_MS;
+  }catch(_){return false;}
+}
+function unlockPin(){try{localStorage.setItem(PIN_UNLOCK_KEY,String(Date.now()));}catch(_){}}
+function lockPin(){try{localStorage.removeItem(PIN_UNLOCK_KEY);}catch(_){}}
 
 // ── 給与履歴ヘルパー ────────────────────────────────────
 // 指定月に適用される給与エントリを返す
@@ -219,8 +238,27 @@ function render(){
   const app=document.getElementById("app");if(!app)return;
   if(view==="clock")  app.innerHTML=rClock();
   if(view==="report") app.innerHTML=rReport();
-  if(view==="payroll")app.innerHTML=rPayroll();
+  if(view==="payroll")app.innerHTML=isPinUnlocked()?rPayroll():rPinLock();
   if(view==="admin")  app.innerHTML=rAdmin();
+  if(view==="settings")app.innerHTML=rSettings();
+}
+
+// ── PINロック画面 ──────────────────────────────────────
+function rPinLock(){
+  return`<div style="max-width:320px;margin:60px auto;text-align:center">
+    <div style="font-size:40px;margin-bottom:12px">🔒</div>
+    <div style="font-size:16px;font-weight:700;margin-bottom:4px">給与計算タブはロックされています</div>
+    <div style="font-size:12px;color:var(--gray);margin-bottom:16px">PINコードを入力してください</div>
+    <input type="password" inputmode="numeric" pattern="[0-9]*" id="pinInput" placeholder="PINコード" maxlength="12"
+      style="text-align:center;font-size:20px;letter-spacing:6px;margin-bottom:10px" onkeydown="if(event.key==='Enter')tryUnlock()">
+    <button class="btn btn-p" style="width:100%" onclick="tryUnlock()">解除</button>
+    <div id="pinErr" style="color:var(--red);font-size:12px;margin-top:8px;min-height:16px"></div>
+  </div>`;
+}
+function tryUnlock(){
+  const v=document.getElementById("pinInput")?.value||"";
+  if(v&&v===settings.pin){unlockPin();render();}
+  else{const e=document.getElementById("pinErr");if(e)e.textContent="PINが違います";}
 }
 
 function empPicker(label=""){
@@ -435,6 +473,7 @@ function rPayroll(){
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
       <div style="font-size:17px;font-weight:700">給与計算</div>
       <input type="month" value="${reportMonth}" onchange="reportMonth=this.value;render()" style="font-size:14px;width:auto;padding:6px 8px">
+      ${settings.pinEnabled?`<button class="btn btn-s btn-sm" onclick="lockPin();render()">🔒 ロック</button>`:""}
     </div>
     <div class="stat-grid">
       <div class="stat"><div class="stat-label">月間総人件費</div><div class="stat-value" style="color:var(--blue-text)">${yen(tot)}</div></div>
@@ -508,6 +547,132 @@ function deleteSalaryEntry(eid,from){
   if(!confirm(`${from} の給与設定を削除しますか？`))return;
   emp.salaryHistory=emp.salaryHistory.filter(h=>h.from!==from);
   persist();render();
+}
+
+// ── 設定タブ ───────────────────────────────────────────
+function rSettings(){
+  const lastSyncText=settings.lastSync?fdt(settings.lastSync):"未同期";
+  return`<div style="max-width:560px;padding:0 4px">
+    <div style="font-size:17px;font-weight:700;margin-bottom:12px">設定</div>
+
+    <div class="card">
+      <div style="padding:14px;border-bottom:0.5px solid var(--border)">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px">🔄 GitHub Gist 同期</div>
+        <div style="font-size:12px;color:var(--gray);line-height:1.6">
+          PCとスマホなど複数端末でデータを共有できます。<a href="https://github.com/settings/tokens" target="_blank" rel="noopener" style="color:var(--blue-text)">GitHubのトークン発行ページ</a>で「gist」権限を持つトークンを作成し、下に入力してください。
+        </div>
+      </div>
+      <div style="padding:14px">
+        <div style="margin-bottom:8px"><label>Gist ID（未作成なら空欄のまま「新規Gist作成」）</label><input id="st-gistid" value="${settings.gistId||""}" placeholder="例: a1b2c3d4e5f6..."></div>
+        <div style="margin-bottom:8px"><label>GitHub Personal Access Token</label><input id="st-token" type="password" value="${settings.token||""}" placeholder="ghp_..."></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+          <button class="btn btn-p" onclick="syncUp()">⬆ アップロード</button>
+          <button class="btn btn-s" onclick="syncDown()">⬇ ダウンロード</button>
+          <button class="btn btn-s" onclick="createGist()">＋ 新規Gist作成</button>
+        </div>
+        <div style="font-size:12px;color:var(--gray)">最終同期: <span id="syncStatus">${lastSyncText}</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="padding:14px;border-bottom:0.5px solid var(--border)">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px">🔒 給与計算タブのPINロック</div>
+        <div style="font-size:12px;color:var(--gray);line-height:1.6">
+          設定すると給与計算タブを開く際にPIN入力が必要になります。一度解除すると、この端末では8時間PIN入力なしでアクセスできます。
+        </div>
+      </div>
+      <div style="padding:14px">
+        ${settings.pinEnabled?`<div style="margin-bottom:10px"><span class="badge b-green" style="margin-left:0">PINロック有効</span></div>`:""}
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+          <div><label>新しいPIN（4桁以上の数字）</label><input id="st-pin1" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="••••"></div>
+          <div><label>PIN（確認）</label><input id="st-pin2" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="••••"></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <button class="btn btn-p" onclick="savePin()">${settings.pinEnabled?"PINを変更":"PINを設定"}</button>
+          ${settings.pinEnabled?`<button class="btn btn-d" onclick="removePin()">PINロックを解除</button>`:""}
+          <span class="save-pill"></span>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--gray);margin-top:4px">
+      ※ Gist IDとトークンはこの端末の localStorage にのみ保存されます。共有端末で使う場合はご注意ください。
+    </div>
+  </div>`;
+}
+function setSyncStatus(text){const el=document.getElementById("syncStatus");if(el)el.textContent=text;}
+async function syncUp(){
+  const gistId=document.getElementById("st-gistid")?.value?.trim();
+  const token=document.getElementById("st-token")?.value?.trim();
+  if(!gistId||!token){alert("Gist ID とトークンを入力してください");return;}
+  settings.gistId=gistId;settings.token=token;saveSettings(settings);
+  setSyncStatus("同期中...");
+  try{
+    const res=await fetch(`https://api.github.com/gists/${gistId}`,{
+      method:"PATCH",
+      headers:{"Authorization":`token ${token}`,"Content-Type":"application/json","Accept":"application/vnd.github+json"},
+      body:JSON.stringify({files:{"kintai_data.json":{content:JSON.stringify({employees,records,corrections},null,2)}}})
+    });
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    settings.lastSync=Date.now();saveSettings(settings);
+    setSyncStatus("✓ アップロード完了 "+fdt(settings.lastSync));
+  }catch(err){setSyncStatus("⚠ アップロード失敗: "+err.message);}
+}
+async function syncDown(){
+  const gistId=document.getElementById("st-gistid")?.value?.trim();
+  const token=document.getElementById("st-token")?.value?.trim();
+  if(!gistId||!token){alert("Gist ID とトークンを入力してください");return;}
+  if(!confirm("この端末のデータをGist上のデータで上書きします。よろしいですか？"))return;
+  settings.gistId=gistId;settings.token=token;saveSettings(settings);
+  setSyncStatus("同期中...");
+  try{
+    const res=await fetch(`https://api.github.com/gists/${gistId}`,{
+      headers:{"Authorization":`token ${token}`,"Accept":"application/vnd.github+json"}
+    });
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const gist=await res.json();
+    const file=gist.files?.["kintai_data.json"];
+    if(!file)throw new Error("kintai_data.json が見つかりません");
+    const data=JSON.parse(file.content);
+    if(data.employees)employees=data.employees.map(migrateSalary);
+    if(data.records)records=data.records;
+    if(data.corrections)corrections=data.corrections;
+    persist();
+    settings.lastSync=Date.now();saveSettings(settings);
+    setSyncStatus("✓ ダウンロード完了 "+fdt(settings.lastSync));
+    render();
+  }catch(err){setSyncStatus("⚠ ダウンロード失敗: "+err.message);}
+}
+async function createGist(){
+  const token=document.getElementById("st-token")?.value?.trim();
+  if(!token){alert("先にトークンを入力してください");return;}
+  if(!confirm("新しい非公開Gistを作成しますか？"))return;
+  setSyncStatus("作成中...");
+  try{
+    const res=await fetch("https://api.github.com/gists",{
+      method:"POST",
+      headers:{"Authorization":`token ${token}`,"Content-Type":"application/json","Accept":"application/vnd.github+json"},
+      body:JSON.stringify({description:"勤怠管理アプリ データ",public:false,files:{"kintai_data.json":{content:JSON.stringify({employees,records,corrections},null,2)}}})
+    });
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const gist=await res.json();
+    settings.gistId=gist.id;settings.token=token;settings.lastSync=Date.now();saveSettings(settings);
+    setSyncStatus("✓ Gistを作成しました: "+gist.id);
+    render();
+  }catch(err){setSyncStatus("⚠ 作成失敗: "+err.message);}
+}
+function savePin(){
+  const p1=document.getElementById("st-pin1")?.value||"";
+  const p2=document.getElementById("st-pin2")?.value||"";
+  if(p1.length<4){alert("PINは4桁以上で入力してください");return;}
+  if(!/^\d+$/.test(p1)){alert("PINは数字のみで入力してください");return;}
+  if(p1!==p2){alert("確認用PINが一致しません");return;}
+  settings.pin=p1;settings.pinEnabled=true;saveSettings(settings);
+  unlockPin();pill("ok");render();
+}
+function removePin(){
+  if(!confirm("PINロックを解除しますか？"))return;
+  settings.pin="";settings.pinEnabled=false;saveSettings(settings);
+  lockPin();pill("ok");render();
 }
 
 // ── 従業員管理 ─────────────────────────────────────────
